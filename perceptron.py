@@ -1,5 +1,7 @@
 import numpy as np
 
+# b (bias, 편향) -> 뉴런이 얼마나 쉽게 활성화 되느냐?
+# w (wieght, 가중치) -> 각 신호의 영향력 제어
 def AND(x1, x2):
     x = np.array([x1, x2])
     w = np.array([0.5, 0.5])
