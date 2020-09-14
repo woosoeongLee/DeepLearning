@@ -36,6 +36,20 @@ def sigmoid(x):
 def relu(x):
     return np.maximum(0, x)
 
+
+# 소프트맥스 함수의 출력은 0에서 1.0사이의 실수이며, 소프트맥스 함수의 출력의 총 합은 1이다.
+# 소프트맥스 함수의 출력을 함수로 해석할 수 있다. --> 문제를 통계적(확률적)으로 대응할 수 있게된다.
+# 소프트맥스 함수를 적용해도 각 원소의 대소 관계는 변하지 않는다. ( y = exp(x)가 단조 증가 함수 )
+# 신경망으로 분류할 때는 출층에서 소프트맥스 함수 생략 가능
+def softmax(a):
+    c = np.max(a)
+    exp_a = np.exp(a - c)
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+
+    return y
+
+
 x = np.arange(-5.0, 5.0, 0.1) # -5.0에서 5.0 전까지 0.1간격의 넘파이 배열을 생성 [-5.0, -4.9, ... 4.9]
 
 #y = step_function(x)
